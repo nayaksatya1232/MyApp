@@ -17,12 +17,14 @@ public class MainController {
 	@Autowired
 	private StudentRepo stdRepo;
 	
-	
+	@GetMapping("/")
+	public String home() {
+		return "Application Working..";
+	}
 	
 	@GetMapping("/student")
 	public List<Student> getAllStudent() {
-		List<Student> list =  Arrays.asList(new Student(10,"Satya",25));
-		return list; 
+		return this.stdRepo.findAll(); 
 	}
 	@PostMapping("/student")
 	public Student saveStudent(@RequestBody Student std) {
