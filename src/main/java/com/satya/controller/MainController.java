@@ -1,5 +1,6 @@
 package com.satya.controller;
 
+import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +17,12 @@ public class MainController {
 	@Autowired
 	private StudentRepo stdRepo;
 	
+	
+	
 	@GetMapping("/student")
 	public List<Student> getAllStudent() {
-		return this.stdRepo.findAll(); 
+		List<Student> list =  Arrays.asList(new Student(10,"Satya",25));
+		return list; 
 	}
 	@PostMapping("/student")
 	public Student saveStudent(@RequestBody Student std) {
